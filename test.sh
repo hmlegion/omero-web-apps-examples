@@ -19,6 +19,9 @@ config=$(pwd)/config.omero
 # Location within Docker instance we want to mount the config.
 docker_config=/opt/omero/web/config/config.omero
 
+python_path=/opt/omero/web/venv3/bin:/omero-iviewer/plugin
+iviewer_path=/opt/work/omero/omero-iviewer
+
 # Run docker container.
 # network 名称已经变成 name-of-directory_compose_network
-docker run -it --rm -e OMEROHOST=$host -p 80:4080 --network docker-example-omero_omero -v $appdir:$docker_appdir -v $config:$docker_config openmicroscopy/omero-web-standalone
+docker run -it --rm -e PYTHONPATH=$python_path -e OMEROHOST=$host -p 4080:4080 --network docker-example-omero_omero -v $iviewer_path:/omero-iviewer -v $appdir:$docker_appdir -v $config:$docker_config openmicroscopy/omero-web-standalone
