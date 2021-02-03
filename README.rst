@@ -19,6 +19,7 @@ virtual environment or via Docker.
 The ``react-webapp`` example app uses Node.js
 to build the JavaScript app and requires Node.js 6 or higher.
 
+``必须先运行 omero.server 和 omero.server ``
 
 Clone this repository
 ---------------------
